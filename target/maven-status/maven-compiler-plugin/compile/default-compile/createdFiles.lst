@@ -1,0 +1,16 @@
+com\ecommerce\dao\OrderDAO.class
+com\ecommerce\dao\ProductDAO.class
+com\ecommerce\bo\OrderDetail.class
+com\ecommerce\bo\Product.class
+com\ecommerce\dao\ReviewDAO.class
+com\ecommerce\filters\AdminAuthFilter.class
+com\ecommerce\bo\Order.class
+com\ecommerce\bo\User.class
+org\itson\e\commerce\resources\JakartaEE10Resource.class
+com\ecommerce\controller\LoginServlet.class
+com\ecommerce\controller\LogoutServlet.class
+com\ecommerce\dao\UserDAO.class
+com\ecommerce\dao\DBConnection.class
+org\itson\e\commerce\JakartaRestConfiguration.class
+com\ecommerce\controller\ProductServlet.class
+com\ecommerce\bo\Review.class
