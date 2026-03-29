@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            display: flex;
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            border: 1px solid #ccc;
+        }
+
+        .barra-lateral {
+            width: 250px;
+            border-right: 1px solid #eaeaea;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .barra-lateral h3 {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .separador {
+            border: none;
+            border-top: 1px solid #eaeaea;
+            margin: 15px 0;
+        }
+
+        .barra-lateral ul {
+            list-style: none;
+        }
+
+        .barra-lateral li {
+            margin-bottom: 20px;
+        }
+
+        .barra-lateral a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .contenido-principal {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cabecera {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eaeaea;
+            gap: 10px;
+        }
+
+        .titulo-cabecera {
+            margin-right: auto;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 5px 15px;
+            border: 1px solid #000;
+            background: #fff;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .seccion-contenido {
+            padding: 40px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .seccion-contenido h1 {
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .linea-titulo {
+            border: none;
+            border-top: 2px solid #ccc;
+            width: 50px;
+            margin-bottom: 30px;
+        }
+
+        .tabla-carrito {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .tabla-carrito th, .tabla-carrito td {
+            border: 1px solid #eaeaea;
+            padding: 20px 15px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .tabla-carrito th {
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #fafafa;
+        }
+
+        .btn-eliminar {
+            background: none;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .caja-resumen {
+            background-color: #fafafa;
+            border: 1px solid #eaeaea;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .contenido-resumen {
+            width: 300px;
+        }
+
+        .fila-resumen {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .fila-resumen.total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            align-items: center;
+        }
+
+        .fila-resumen.total span:last-child {
+            font-size: 20px;
+        }
+
+        .contenedor-botones {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .btn-accion {
+            padding: 15px 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .btn-continuar {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .btn-pagar {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #000;
+        }
+
+        .pie-pagina {
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        
+        <aside class="barra-lateral">
+            <h3>NAVEGACIÓN</h3>
+            <hr class="separador">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="pedidos.html">Mis Pedidos</a></li>
+                <li><a href="admin.html">Administrador</a></li>
+            </ul>
+            <hr class="separador">
+            <ul>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </aside>
+
+        <main class="contenido-principal">
+            
+            <header class="cabecera">
+                <div class="titulo-cabecera">CARRITO DE COMPRAS</div>
+                <button class="btn" onclick="window.location.href='perfil.html'">Perfil</button>
+                <button class="btn" onclick="window.location.href='login.html'">Cerrar Sesión</button>
+            </header>
+
+            <section class="seccion-contenido">
+                <h1>CARRITO DE COMPRAS</h1>
+                <hr class="linea-titulo">
+                
+                <table class="tabla-carrito">
+                    <thead>
+                        <tr>
+                            <th>PRODUCT NAME</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop Pro 14"</td>
+                            <td>$1,200.00</td>
+                            <td>1</td>
+                            <td><button class="btn-eliminar">ELIMINAR</button></td>
+                        </tr>
+                        <tr>
+                            <td>Wireless Mouse</td>
+                            <td>$25.00</td>
+                            <td>2</td>
+                            <td><button class="btn-eliminar">ELIMINAR</button></td>
+                        </tr>
+                        <tr>
+                            <td>USB-C Hub Adapter</td>
+                            <td>$45.00</td>
+                            <td>1</td>
+                            <td><button class="btn-eliminar">ELIMINAR</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="caja-resumen">
+                    <div class="contenido-resumen">
+                        <div class="fila-resumen">
+                            <span>SUBTOTAL</span>
+                            <span>$1,270.00</span>
+                        </div>
+                        <div class="fila-resumen">
+                            <span>IMPUESTOS (16%)</span>
+                            <span>$203.20</span>
+                        </div>
+                        <div class="fila-resumen total">
+                            <span>COSTO TOTAL</span>
+                            <span>$1,473.20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-botones">
+                    <a href="catalogo.html" class="btn-accion btn-continuar">CONTINUAR COMPRANDO</a>
+                    <a href="pago.html" class="btn-accion btn-pagar">PAGAR</a>
+                </div>
+
+            </section>
+
+            <footer class="pie-pagina">
+                <p>APLICACIONES WEB – UNIDAD 2</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
